@@ -22,12 +22,26 @@ class MainActivity : AppCompatActivity() {
      */
     private fun rollDice() {
         // Create new dice object
-        val dice = Dice(6)
-        val diceRoll = dice.roll()
-
+//        val dice = Dice(6)
+//        val diceRoll = dice.roll()
+//
         // Update the result on sceen
         val resultTextView: TextView = findViewById(R.id.textView)
-        resultTextView.text = diceRoll.toString()
+//        resultTextView.text = diceRoll.toString()
+        val myFirstDice = Dice(6)
+        val rollResult = myFirstDice.roll()
+        val luckyNumber = 4
+
+        when (rollResult) {
+            luckyNumber -> resultTextView.text = "Winner"
+            1 -> resultTextView.text = "Looser = 1"
+            2 -> resultTextView.text = "Looser = 2"
+            3 -> resultTextView.text = "Looser = 3"
+            5 -> resultTextView.text = "Looser = 5"
+            6 -> resultTextView.text = "Looser = 6"
+        }
+
+
     }
 
     class Dice(val numSides: Int) {
